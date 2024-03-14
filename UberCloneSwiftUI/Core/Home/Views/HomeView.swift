@@ -8,30 +8,44 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var showLocationSearchView = false
+    @State private var mapState = MapViewState.noInput
+    @EnvironmentObject var locationViewModel: LocationSearchViewModel
     
     var body: some View {
-        ZStack(alignment: .top) {
-            MapViewRepresentable()
-                .ignoresSafeArea()
-            
-            if showLocationSearchView {
-                LocationSearchView(showLocationSearchView: $showLocationSearchView)
-            } else {
-                LocationSearchActivationView()
-                    .padding(.top, 80)
-                // dismisses the location search view on tap
-                    .onTapGesture {
-                        withAnimation(.spring()) {
-                            showLocationSearchView.toggle()
+        ZStack(alignment: .bottom) {
+            ZStack(alignment: .top) {
+                UberMapViewRepresentable(mapState: $mapState)
+                    .ignoresSafeArea()
+                
+                if mapState == .searchingForLocation {
+                    LocationSearchView(mapState: $mapState)
+                } else if mapState == .noInput {
+                    LocationSearchActivationView()
+                        .padding(.top, 80)
+                    // dismisses the location search view on tap
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                mapState = .searchingForLocation
+                            }
                         }
-                    }
+                }
+                
+                MapViewActionButton(mapState: $mapState)
+                    .padding(.leading, 20)
+                    .padding(.top, 5)
             }
             
-            MapViewActionButton(showLocationSearchView: $showLocationSearchView)
-                .padding(.leading, 20)
-                .padding(.top, 5)
+            if mapState == .locationSelected {
+                RideRequestView()
+                    .transition(.move(edge: .bottom))
+            }
         }
+        .ignoresSafeArea(edges: .bottom)
+        .onReceive(LocationManager.shared.$userLocation, perform: { location in
+            if let location = location {
+                locationViewModel.userLocation = location
+            }
+        })
     }
 }
 
