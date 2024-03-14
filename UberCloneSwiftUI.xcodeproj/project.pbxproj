@@ -23,6 +23,7 @@
 		CFA1BF1A2BA31590003E0E47 /* RideType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA1BF192BA31590003E0E47 /* RideType.swift */; };
 		CFA1BF1C2BA3252B003E0E47 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA1BF1B2BA3252B003E0E47 /* Double.swift */; };
 		CFA1BF1E2BA33F98003E0E47 /* UberLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA1BF1D2BA33F98003E0E47 /* UberLocation.swift */; };
+		CFA1BF202BA356A2003E0E47 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA1BF1F2BA356A2003E0E47 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		CFA1BF192BA31590003E0E47 /* RideType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideType.swift; sourceTree = "<group>"; };
 		CFA1BF1B2BA3252B003E0E47 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Double.swift; path = UberCloneSwiftUI/Models/Double.swift; sourceTree = SOURCE_ROOT; };
 		CFA1BF1D2BA33F98003E0E47 /* UberLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberLocation.swift; sourceTree = "<group>"; };
+		CFA1BF1F2BA356A2003E0E47 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Color.swift; path = UberCloneSwiftUI/Models/Color.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				CFA1BF1B2BA3252B003E0E47 /* Double.swift */,
+				CFA1BF1F2BA356A2003E0E47 /* Color.swift */,
 			);
 			name = Extensions;
 			path = "New Group1/Extensions";
@@ -278,6 +281,7 @@
 				CFA1BF152BA2B517003E0E47 /* MapViewState.swift in Sources */,
 				CFA1BF0D2BA15E0F003E0E47 /* MapViewActionButton.swift in Sources */,
 				CFA1BF112BA17F4C003E0E47 /* LocationSearchResultsCell.swift in Sources */,
+				CFA1BF202BA356A2003E0E47 /* Color.swift in Sources */,
 				CFA1BEEC2BA14457003E0E47 /* UberCloneSwiftUIApp.swift in Sources */,
 				CFA1BF032BA145F5003E0E47 /* UberMapViewRepresentable.swift in Sources */,
 				CFA1BF1E2BA33F98003E0E47 /* UberLocation.swift in Sources */,

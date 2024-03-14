@@ -39,7 +39,7 @@ struct RideRequestView: View {
                         
                         Spacer()
                         
-                        Text("1:30 PM")
+                        Text(locationViewModel.pickupTime ?? "")
                             .font(.system(size: 14, weight: .semibold))
                             .foregroundStyle(Color(.gray))
                     }
@@ -53,7 +53,7 @@ struct RideRequestView: View {
                         
                         Spacer()
                         
-                        Text("1:45 PM")
+                        Text(locationViewModel.dropOffTime ?? "")
                             .font(.system(size: 14, weight: .semibold))
                             .foregroundStyle(Color(.gray))
                     }
@@ -91,8 +91,8 @@ struct RideRequestView: View {
                             .padding(12)
                         }
                         .frame(width: 112, height: 140)
-                        .foregroundStyle(Color(type == selectedRideType ? .white : .black))
-                        .background(Color(type == selectedRideType ? .systemBlue : .systemGroupedBackground))
+                        .foregroundStyle(Color(type == selectedRideType ? .white : Color.theme.primaryTextColor))
+                        .background(type == selectedRideType ? .blue : Color.theme.secondaryBackgroundColor)
                         // zoom effect
                         .scaleEffect(type == selectedRideType ? 1.18 : 1.0)
                         .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
@@ -130,7 +130,7 @@ struct RideRequestView: View {
                     .padding()
             }
             .frame(height: 50)
-            .background(Color(.systemGroupedBackground))
+            .background(Color.theme.secondaryBackgroundColor)
             .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
             .padding(.horizontal)
             
@@ -147,11 +147,11 @@ struct RideRequestView: View {
             }
         }
         .padding(.bottom,30)
-        .background(.white)
+        .background(Color.theme.backgroundColor)
         .cornerRadius(16)
     }
 }
 
-#Preview {
-    RideRequestView()
-}
+//#Preview {
+//    RideRequestView()
+//}
